@@ -7,7 +7,7 @@ public class Controller : MonoBehaviour
     protected bool _isTurnFinished = false;
     public bool IsTurnFinished => _isTurnFinished;
 
-    public event System.Action OnTurnFinished;
+    public event System.Action OnTurnFinished = delegate { };
 
     public virtual void EnableActions()
     {
@@ -17,6 +17,6 @@ public class Controller : MonoBehaviour
     public virtual void DisableActions()
     {
         _isTurnFinished = true;
-        OnTurnFinished?.Invoke();
+        OnTurnFinished.Invoke();
     }
 }

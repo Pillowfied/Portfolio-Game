@@ -5,20 +5,27 @@ using UnityEngine;
 public class PlayerController : Controller
 {
     private GameObject _target;
+    private TurnManager _turnManager;
+
+    public void SetTurnManager(TurnManager pTurnManager)
+    {
+        _turnManager = pTurnManager;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            Vector2 _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(_mousePos, Vector2.zero);
+            if (hit.collider != null)
             {
-                GameObject clickedObject = hit.collider.gameObject;
+                GameObject _clickedObject = hit.collider.gameObject;
 
-                if (IsValidTarget(clickedObject))
+                if (IsValidTarget(_clickedObject))
                 {
-                    SetTarget(clickedObject);
+                    SetTarget(_clickedObject);
                 }
             }
         }

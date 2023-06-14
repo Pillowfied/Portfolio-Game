@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Entity
+public class DisplayAbility : MonoBehaviour
 {
-    [SerializeField] Ability[] _abilities = new Ability[5];
+    Ability[] _abilities = new Ability[5];
     // Start is called before the first frame update
     void Start()
     {
-
+        //foreach (GameObject pAbility in Player.Ability)
+            //_ability[x] = Player.Ability[x]
     }
 
     // Update is called once per frame
-    public override void Update()
+    void Update()
     {
-        base.Update();
+        
     }
 
-    public override void OnClick()
+    void Show()
     {
-        Debug.Log("Player Clicked.");
+
     }
 
-    public override void OnHover()
+    void Hide()
     {
 
     }

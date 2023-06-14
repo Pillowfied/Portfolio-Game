@@ -9,17 +9,26 @@ public class TurnManager : MonoBehaviour
 
     private int _currentTurnIndex = 0;
     private bool _isPlayerTurn = false;
-   
+
     // Start is called before the first frame update
     void Start()
     {
+        _isPlayerTurn = true;
         StartNextTurn();
+        foreach (GameObject player in _players)
+        {
+            player.GetComponent<PlayerController>().SetTurnManager(this);
+        }
+        foreach (GameObject enemy in _enemies)
+        {
+            enemy.GetComponent<EnemyController>().SetTurnManager(this);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (_isPlayerTurn && _players[_currentTurnIndex].GetComponent<PlayerController>().IsTurnFinished)
         {
             SwitchTurn();

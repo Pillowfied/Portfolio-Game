@@ -2,15 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : Controller
+public class ShowUI : MonoBehaviour
 {
-
-    private TurnManager _turnManager;
-
-    public void SetTurnManager(TurnManager pTurnManager)
-    {
-        _turnManager = pTurnManager;
-    }
     // Start is called before the first frame update
     void Start()
     {
