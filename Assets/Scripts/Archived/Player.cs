@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] Ability[] _abilities = new Ability[5];
-    // Start is called before the first frame update
+    [SerializeField] int _health;
+    [SerializeField] int _armor;
+    [SerializeField] int _strength;
+    [SerializeField] int _intellect;
+
+    [SerializeField] Ability[] _abilities;
     void Start()
     {
 
@@ -19,7 +23,7 @@ public class Player : Entity
 
     public override void OnClick()
     {
-        Debug.Log("Player Clicked.");
+
     }
 
     public override void OnHover()

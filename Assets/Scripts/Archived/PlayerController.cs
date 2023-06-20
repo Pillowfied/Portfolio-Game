@@ -7,6 +7,10 @@ public class PlayerController : Controller
     private GameObject _target;
     private TurnManager _turnManager;
 
+    public GameObject Target
+    {
+        get { return _target; }
+    }
     public void SetTurnManager(TurnManager pTurnManager)
     {
         _turnManager = pTurnManager;
@@ -31,15 +35,14 @@ public class PlayerController : Controller
         }
     }
 
-    bool IsValidTarget(GameObject target)
+    bool IsValidTarget(GameObject pTarget)
     {
-        return target.GetComponentInChildren<Entity>() != null;
+        return pTarget.GetComponentInChildren<Entity>() != null;
     }
 
-    void SetTarget(GameObject target)
+    void SetTarget(GameObject pTarget)
     {
-        _target = target;
-
+        _target = pTarget;
         Debug.Log("Selected target: " + _target.name);
     }
 }

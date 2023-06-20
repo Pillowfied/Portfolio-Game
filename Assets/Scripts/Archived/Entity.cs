@@ -18,7 +18,7 @@ public class Entity : MonoBehaviour, IClickable
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
